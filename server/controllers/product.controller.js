@@ -15,7 +15,7 @@ const create = (req, res, next) => {
 			});
 		}
 		let product = new Product(fields);
-		product.shop= req.shop;
+		product.store= req.store;
 		if(files.image){
 			product.image.data = fs.readFileSync(files.image.path);
 			product.image.contentType = files.image.type;
@@ -32,7 +32,7 @@ const create = (req, res, next) => {
 };
 
 const productByID = (req, res, next, id) => {
-	Product.findById(id).populate("shop", "_id name").exec((err, product) => {
+	Product.findById(id).populate("store", "_id name").exec((err, product) => {
 		if (err || !product)
 			return res.status("400").json({
 				error: "Product not found"
@@ -97,19 +97,19 @@ const remove = (req, res, next) => {
 	});
 };
 
-const listByShop = (req, res) => {
-	Product.find({shop: req.shop._id}, (err, products) => {
+const listByStore = (req, res) => {
+	Product.find({store: req.store._id}, (err, products) => {
 		if (err) {
 			return res.status(400).json({
 				error: errorHandler.getErrorMessage(err)
 			});
 		}
 		res.json(products);
-	}).populate("shop", "_id name").select("-image");
+	}).populate("store", "_id name").select("-image");
 };
 
 const listLatest = (req, res) => {
-	Product.find({}).sort("-created").limit(5).populate("shop", "_id name").exec((err, products) => {
+	Product.find({}).sort("-created").limit(5).populate("store", "_id name").exec((err, products) => {
 		if (err) {
 			return res.status(400).json({
 				error: errorHandler.getErrorMessage(err)
@@ -120,7 +120,7 @@ const listLatest = (req, res) => {
 };
 
 const listRelated = (req, res) => {
-	Product.find({ "_id": { "$ne": req.product }, "category": req.product.category}).limit(5).populate("shop", "_id name").exec((err, products) => {
+	Product.find({ "_id": { "$ne": req.product }, "category": req.product.category}).limit(5).populate("store", "_id name").exec((err, products) => {
 		if (err) {
 			return res.status(400).json({
 				error: errorHandler.getErrorMessage(err)
@@ -154,7 +154,7 @@ const list = (req, res) => {
 			});
 		}
 		res.json(products);
-	}).populate("shop", "_id name").select("-image");
+	}).populate("store", "_id name").select("-image");
 };
 
 const decreaseQuantity = (req, res, next) => {
@@ -196,7 +196,7 @@ export default {
 	read,
 	update,
 	remove,
-	listByShop,
+	listByStore,
 	listLatest,
 	listRelated,
 	listCategories,

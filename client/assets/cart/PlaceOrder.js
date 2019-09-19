@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import auth from "./../auth/auth-helper";
 import cart from "./cart-helper.js";
 import { CardElement, injectStripe } from "react-stripe-elements";
-import { create } from "./../order/api-order.js";
+import { create } from "./../order/order-api.js";
 import { Redirect } from "react-router-dom";
 import Button, Typography, Icon, { withStyles } from "material-ui";
 

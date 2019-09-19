@@ -30,7 +30,7 @@ const styles = theme => ({
   subheading: {
     color: theme.palette.text.secondary
   },
-  shopTitle: {
+  storeTitle: {
     fontSize: "1.2em",
     marginBottom: "5px"
   },
@@ -40,19 +40,19 @@ const styles = theme => ({
 })
 class Stores extends Component {
   state = {
-      shops:[]
+      stores:[]
   }
-  loadShops = () => {
+  loadStores = () => {
     list().then((data) => {
       if (data.error) {
         console.log(data.error)
       } else {
-        this.setState({shops: data})
+        this.setState({stores: data})
       }
     })
   }
   componentDidMount = () => {
-    this.loadShops()
+    this.loadStores()
   }
   render() {
     const {classes} = this.props
@@ -60,22 +60,22 @@ class Stores extends Component {
     <div>
       <Paper className={classes.root} elevation={4}>
         <Typography type="title" className={classes.title}>
-          All Shops
+          All Stores
         </Typography>
         <List dense>
-          {this.state.shops.map((shop, i) => {
-            return <Link to={"/shops/"+shop._id} key={i}>
+          {this.state.stores.map((store, i) => {
+            return <Link to={"/stores/"+store._id} key={i}>
               <Divider/>
               <ListItem button>
                 <ListItemAvatar>
-                  <Avatar className={classes.avatar}  src={"/api/shops/logo/"+shop._id+"?" + new Date().getTime()}/>
+                  <Avatar className={classes.avatar}  src={"/api/stores/logo/"+store._id+"?" + new Date().getTime()}/>
                 </ListItemAvatar>
                 <div className={classes.details}>
-                  <Typography type="headline" component="h2" color="primary" className={classes.shopTitle}>
-                    {shop.name}
+                  <Typography type="headline" component="h2" color="primary" className={classes.storeTitle}>
+                    {store.name}
                   </Typography>
                   <Typography type="subheading" component="h4" className={classes.subheading}>
-                    {shop.description}
+                    {store.description}
                   </Typography>
                 </div>
               </ListItem>

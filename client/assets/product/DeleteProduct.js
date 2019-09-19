@@ -15,7 +15,7 @@ class DeleteProduct extends Component {
   deleteProduct = () => {
     const jwt = auth.isAuthenticated()
     remove({
-      shopId: this.props.shopId,
+      storeId: this.props.storeId,
       productId: this.props.product._id
     }, {t: jwt.token}).then((data) => {
       if (data.error) {
@@ -55,7 +55,7 @@ class DeleteProduct extends Component {
   }
 }
 DeleteProduct.propTypes = {
-  shopId: PropTypes.string.isRequired,
+  storeId: PropTypes.string.isRequired,
   product: PropTypes.object.isRequired,
   onRemove: PropTypes.func.isRequired
 }

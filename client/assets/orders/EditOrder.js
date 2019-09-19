@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import auth from "./../auth/auth-helper";
-import { listByUser } from "./api-order.js";
+import { listByUser } from "./order-api.js";
 import { Link } from "react-router-dom";
 
 const styles = theme => ({

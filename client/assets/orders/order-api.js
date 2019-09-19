@@ -13,8 +13,8 @@ const create = (params, credentials, order, token) => {
 		}).catch((err) => console.log(err));
 };
 
-const listByShop = (params, credentials) => {
-	return fetch("/api/orders/shop/"+params.shopId, {
+const listByStore = (params, credentials) => {
+	return fetch("/api/orders/store/"+params.storeId, {
 		method: "GET",
 		headers: {
 			"Accept": "application/json",
@@ -28,7 +28,7 @@ const listByShop = (params, credentials) => {
 };
 
 const update = (params, credentials, product) => {
-	return fetch("/api/order/status/" + params.shopId, {
+	return fetch("/api/order/status/" + params.storeId, {
 		method: "PUT",
 		headers: {
 			"Accept": "application/json",
@@ -44,7 +44,7 @@ const update = (params, credentials, product) => {
 };
 
 const cancelProduct = (params, credentials, product) => {
-	return fetch("/api/order/"+params.shopId+"/cancel/"+params.productId, {
+	return fetch("/api/order/"+params.storeId+"/cancel/"+params.productId, {
 		method: "PUT",
 		headers: {
 			"Accept": "application/json",
@@ -60,7 +60,7 @@ const cancelProduct = (params, credentials, product) => {
 };
 
 const processCharge = (params, credentials, product) => {
-	return fetch("/api/order/"+params.orderId+"/charge/"+params.userId+"/"+params.shopId, {
+	return fetch("/api/order/"+params.orderId+"/charge/"+params.userId+"/"+params.storeId, {
 		method: "PUT",
 		headers: {
 			"Accept": "application/json",
@@ -107,7 +107,7 @@ const read = (params, credentials) => {
 
 export {
 	create,
-	listByShop,
+	listByStore,
 	update,
 	cancelProduct,
 	processCharge,

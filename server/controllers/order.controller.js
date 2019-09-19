@@ -15,8 +15,8 @@ const create = (req, res) => {
 	});
 };
 
-const listByShop = (req, res) => {
-	Order.find({"products.shop": req.shop._id})
+const listByStore = (req, res) => {
+	Order.find({"products.store": req.store._id})
 		.populate({path: "products.product", select: "_id name price"})
 		.sort("-created")
 		.exec((err, orders) => {
@@ -47,7 +47,7 @@ const getStatusValues = (req, res) => {
 };
 
 const orderByID = (req, res, next, id) => {
-	Order.findById(id).populate("products.product", "name price").populate("products.shop", "name").exec((err, order) => {
+	Order.findById(id).populate("products.product", "name price").populate("products.store", "name").exec((err, order) => {
 		if (err || !order)
 			return res.status("400").json({
 				error: "Order not found"
@@ -76,7 +76,7 @@ const read = (req, res) => {
 
 export default {
 	create,
-	listByShop,
+	listByStore,
 	update,
 	getStatusValues,
 	orderByID,

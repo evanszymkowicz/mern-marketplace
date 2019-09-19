@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import crypto from "crypto";
-const ShopSchema = new mongoose.Schema({
+const StoreSchema = new mongoose.Schema({
 	name: {
 		type: String,
 		trim: true,
@@ -22,4 +22,4 @@ const ShopSchema = new mongoose.Schema({
 	owner: {type: mongoose.Schema.ObjectId, ref: "User"}
 });
 
-export default mongoose.model("Shop", ShopSchema);
+export default mongoose.model("Store", StoreSchema);

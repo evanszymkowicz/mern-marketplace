@@ -1,4 +1,4 @@
-import Shop from "../models/shop.model";
+import Store from "../models/store.model";
 import _ from "lodash";
 import errorHandler from "./../helpers/dbErrorHandler";
 import formidable from "formidable";
@@ -14,13 +14,13 @@ const create = (req, res, next) => {
 				message: "Image could not be uploaded"
 			});
 		}
-		let shop = new Shop(fields);
-		shop.owner= req.profile;
+		let store = new Store(fields);
+		store.owner= req.profile;
 		if(files.image){
-			shop.image.data = fs.readFileSync(files.image.path);
-			shop.image.contentType = files.image.type;
+			store.image.data = fs.readFileSync(files.image.path);
+			store.image.contentType = files.image.type;
 		}
-		shop.save((err, result) => {
+		store.save((err, result) => {
 			if (err) {
 				return res.status(400).json({
 					error: errorHandler.getErrorMessage(err)
@@ -31,21 +31,21 @@ const create = (req, res, next) => {
 	});
 };
 
-const shopByID = (req, res, next, id) => {
-	Shop.findById(id).populate("owner", "_id name").exec((err, shop) => {
-		if (err || !shop)
+const storeByID = (req, res, next, id) => {
+	Store.findById(id).populate("owner", "_id name").exec((err, store) => {
+		if (err || !store)
 			return res.status("400").json({
-				error: "Shop not found"
+				error: "Store not found"
 			});
-		req.shop = shop;
+		req.store = store;
 		next();
 	});
 };
 
 const photo = (req, res, next) => {
-	if(req.shop.image.data){
-		res.set("Content-Type", req.shop.image.contentType);
-		return res.send(req.shop.image.data);
+	if(req.store.image.data){
+		res.set("Content-Type", req.store.image.contentType);
+		return res.send(req.store.image.data);
 	}
 	next();
 };
@@ -54,29 +54,29 @@ const defaultPhoto = (req, res) => {
 };
 
 const list = (req, res) => {
-	Shop.find((err, shops) => {
+	Store.find((err, stores) => {
 		if (err) {
 			return res.status(400).json({
 				error: errorHandler.getErrorMessage(err)
 			});
 		}
-		res.json(shops);
+		res.json(stores);
 	});
 };
 
 const listByOwner = (req, res) => {
-	Shop.find({owner: req.profile._id}, (err, shops) => {
+	Store.find({owner: req.profile._id}, (err, stores) => {
 		if (err) {
 			return res.status(400).json({
 				error: errorHandler.getErrorMessage(err)
 			});
 		}
-		res.json(shops);
+		res.json(stores);
 	}).populate("owner", "_id name");
 };
 
 const read = (req, res) => {
-	return res.json(req.shop);
+	return res.json(req.store);
 };
 
 const update = (req, res, next) => {
@@ -88,26 +88,26 @@ const update = (req, res, next) => {
 				message: "Photo could not be uploaded"
 			});
 		}
-		let shop = req.shop;
-		shop = _.extend(shop, fields);
-		shop.updated = Date.now();
+		let store = req.store;
+		store = _.extend(store, fields);
+		store.updated = Date.now();
 		if(files.image){
-			shop.image.data = fs.readFileSync(files.image.path);
-			shop.image.contentType = files.image.type;
+			store.image.data = fs.readFileSync(files.image.path);
+			store.image.contentType = files.image.type;
 		}
-		shop.save((err) => {
+		store.save((err) => {
 			if (err) {
 				return res.status(400).send({
 					error: errorHandler.getErrorMessage(err)
 				});
 			}
-			res.json(shop);
+			res.json(store);
 		});
 	});
 };
 
 const isOwner = (req, res, next) => {
-	const isOwner = req.shop && req.auth && req.shop.owner._id == req.auth._id;
+	const isOwner = req.store && req.auth && req.store.owner._id == req.auth._id;
 	if(!isOwner){
 		return res.status("403").json({
 			error: "User is not authorized"
@@ -117,20 +117,20 @@ const isOwner = (req, res, next) => {
 };
 
 const remove = (req, res, next) => {
-	let shop = req.shop;
-	shop.remove((err, deletedShop) => {
+	let store = req.store;
+	store.remove((err, deletedStore) => {
 		if (err) {
 			return res.status(400).json({
 				error: errorHandler.getErrorMessage(err)
 			});
 		}
-		res.json(deletedShop);
+		res.json(deletedStore);
 	});
 };
 
 export default {
 	create,
-	shopByID,
+	storeByID,
 	photo,
 	defaultPhoto,
 	list,

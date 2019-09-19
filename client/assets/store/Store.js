@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { read } from "./store-api.js";
 import Products from "./../product/Products";
-import {listByShop} from "./../product/product-api";
+import {listByStore} from "./../product/product-api";
 import Card, { CardContent } from "material-ui/Card";
 import Typography from "material-ui/Typography";
 import Avatar from "material-ui/Avatar";
@@ -44,15 +44,15 @@ class Store extends Component {
   constructor({match}) {
     super()
     this.state = {
-      shop: "",
+      store: "",
       products:[]
     }
     this.match = match
   }
 
   loadProducts = () => {
-    listByShop({
-      shopId: this.match.params.shopId
+    listByStore({
+      storeId: this.match.params.storeId
     }).then((data)=>{
       if (data.error) {
         this.setState({error: data.error})
@@ -65,20 +65,20 @@ class Store extends Component {
   componentDidMount = () => {
     this.loadProducts()
     read({
-      shopId: this.match.params.shopId
+      storeId: this.match.params.storeId
     }).then((data) => {
       if (data.error) {
         this.setState({error: data.error})
       } else {
-        this.setState({shop: data})
+        this.setState({store: data})
       }
     })
   }
 
   render() {
-    const logoUrl = this.state.shop._id
-          ? `/api/shops/logo/${this.state.shop._id}?${new Date().getTime()}`
-          : "/api/shops/defaultphoto"
+    const logoUrl = this.state.store._id
+          ? `/api/stores/logo/${this.state.store._id}?${new Date().getTime()}`
+          : "/api/stores/defaultphoto"
     const {classes} = this.props
     return (<div className={classes.root}>
       <Grid container spacing={24}>
@@ -86,12 +86,12 @@ class Store extends Component {
           <Card className={classes.card}>
             <CardContent>
               <Typography type="headline" component="h2" className={classes.title}>
-                {this.state.shop.name}
+                {this.state.store.name}
               </Typography>
               <br/>
               <Avatar src={logoUrl} className={classes.bigAvatar}/><br/>
                 <Typography type="subheading" component="h2" className={classes.subheading}>
-                  {this.state.shop.description}
+                  {this.state.store.description}
                 </Typography><br/>
             </CardContent>
           </Card>

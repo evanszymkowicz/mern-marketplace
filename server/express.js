@@ -11,7 +11,7 @@ import helmet from "helmet";
 import Template from "./../template";
 import userRoutes from "./routes/user.routes";
 import authRoutes from "./routes/auth.routes";
-import shopRoutes from "./routes/shop.routes";
+import storeRoutes from "./routes/store.routes";
 import productRoutes from "./routes/product.routes";
 import orderRoutes from "./routes/order.routes";
 

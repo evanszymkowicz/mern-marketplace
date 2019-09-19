@@ -1,7 +1,7 @@
 import React,  {Component } from "react";
 import PropTypes from "prop-types";
 import auth from "./../auth/auth-helper";
-import { listByShop } from "./../product/product-api";
+import { listByStore } from "./../product/product-api";
 import DeleteProduct from "./../product/DeleteProduct";
 import { withStyles } from "material-ui/styles";
 import Button from "material-ui/Button";
@@ -48,8 +48,8 @@ class MyProducts extends Component {
   }
 
   loadProducts = () => {
-    listByShop({
-      shopId: this.props.shopId
+    listByStore({
+      storeId: this.props.storeId
     }).then((data)=>{
       if (data.error) {
         this.setState({error: data.error})
@@ -67,7 +67,7 @@ class MyProducts extends Component {
     const updatedProducts = this.state.products
     const index = updatedProducts.indexOf(product)
     updatedProducts.splice(index, 1)
-    this.setState({shops: updatedProducts})
+    this.setState({stores: updatedProducts})
   }
 
   render() {
@@ -77,7 +77,7 @@ class MyProducts extends Component {
         <Typography type="title" className={classes.title}>
           Products
           <span className={classes.addButton}>
-            <Link to={"/seller/"+this.props.shopId+"/products/new"}>
+            <Link to={"/seller/"+this.props.storeId+"/products/new"}>
               <Button color="primary" variant="raised">
                 <Icon className={classes.leftIcon}>add_box</Icon>  New Product
               </Button>
@@ -102,14 +102,14 @@ class MyProducts extends Component {
                   </Typography>
                 </div>
                 <ListItemSecondaryAction>
-                  <Link to={"/seller/"+product.shop._id+"/"+product._id+"/edit"}>
+                  <Link to={"/seller/"+product.store._id+"/"+product._id+"/edit"}>
                     <IconButton aria-label="Edit" color="primary">
                       <Edit/>
                     </IconButton>
                   </Link>
                   <DeleteProduct
                     product={product}
-                    shopId={this.props.shopId}
+                    storeId={this.props.storeId}
                     onRemove={this.removeProduct}/>
                 </ListItemSecondaryAction>
               </ListItem>
@@ -120,7 +120,7 @@ class MyProducts extends Component {
 }
 MyProducts.propTypes = {
   classes: PropTypes.object.isRequired,
-  shopId: PropTypes.string.isRequired
+  storeId: PropTypes.string.isRequired
 }
 
 export default withStyles(styles)(MyProducts);

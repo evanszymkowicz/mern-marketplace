@@ -1,7 +1,7 @@
 import queryString from "query-string";
 
 const create = (params, credentials, product) => {
-	return fetch("/api/products/by/"+ params.shopId, {
+	return fetch("/api/products/by/"+ params.storeId, {
 		method: "POST",
 		headers: {
 			"Accept": "application/json",
@@ -23,7 +23,7 @@ const read = (params) => {
 };
 
 const update = (params, credentials, product) => {
-	return fetch("/api/product/" + params.shopId +"/"+params.productId, {
+	return fetch("/api/product/" + params.storeId +"/"+params.productId, {
 		method: "PUT",
 		headers: {
 			"Accept": "application/json",
@@ -38,7 +38,7 @@ const update = (params, credentials, product) => {
 };
 
 const remove = (params, credentials) => {
-	return fetch("/api/product/" + params.shopId +"/"+params.productId, {
+	return fetch("/api/product/" + params.storeId +"/"+params.productId, {
 		method: "DELETE",
 		headers: {
 			"Accept": "application/json",
@@ -52,8 +52,8 @@ const remove = (params, credentials) => {
 	});
 };
 
-const listByShop = (params) => {
-	return fetch("/api/products/by/"+params.shopId, {
+const listByStore = (params) => {
+	return fetch("/api/products/by/"+params.storeId, {
 		method: "GET"
 	}).then((response) => {
 		return response.json();
@@ -100,7 +100,7 @@ export {
 	read,
 	update,
 	remove,
-	listByShop,
+	listByStore,
 	listLatest,
 	listRelated,
 	listCategories,

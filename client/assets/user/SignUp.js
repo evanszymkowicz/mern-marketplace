@@ -36,7 +36,7 @@ const styles = theme => ({
   }
 })
 
-class Signup extends Component {
+class SignUp extends Component {
   state = {
       name: "",
       password: "",

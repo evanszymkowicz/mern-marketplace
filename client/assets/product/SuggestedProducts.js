@@ -94,9 +94,9 @@ class SuggestedProducts extends Component {
 							<div className={classes.details}>
 								<CardContent className={classes.content}>
 									<Link to={"/product/"+item._id}><Typography type="title" component="h3" className={classes.productTitle} color="primary">{item.name}</Typography></Link>
-									<Link to={"/shops/"+item.shop._id}>
+									<Link to={"/stores/"+item.store._id}>
 										<Typography type="subheading" className={classes.subheading}>
-											<Icon className={classes.icon}>shopping_basket</Icon> {item.shop.name}
+											<Icon className={classes.icon}>storeping_basket</Icon> {item.store.name}
 										</Typography>
 									</Link>
 									<Typography component="p" className={classes.date}>

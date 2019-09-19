@@ -42,7 +42,7 @@ const signout = (req, res) => {
 	});
 };
 
-const requireSignin = expressJwt({
+const requireLogin = expressJwt({
 	secret: config.jwtSecret,
 	userProperty: "auth"
 });
@@ -60,6 +60,6 @@ const hasAuthorization = (req, res, next) => {
 export default {
 	signin,
 	signout,
-	requireSignin,
+	requireLogin,
 	hasAuthorization
 };

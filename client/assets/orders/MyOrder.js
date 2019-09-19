@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 // import Typography from "material-ui/Typography"
 // import Divider from "material-ui/Divider"
 import auth from "./../auth/auth-helper";
-import { listByUser } from "./api-order.js";
+import { listByUser } from "./order-api.js";
 import { Link } from "react-router-dom";
 
 const styles = theme => ({

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import auth from "./../auth/auth-helper";
 import PropTypes from "prop-types";
-import { read, update } from "./api-store.js";
+import { read, update } from "./store-api.js";
 import { Redirect } from "react-router-dom";
 import MyProducts from "./../product/MyProducts";
 import Card, { CardActions, CardContent, CardMedia } from "material-ui/Card";

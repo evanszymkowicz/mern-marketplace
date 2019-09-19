@@ -3,7 +3,7 @@ import crypto from "crypto";
 const CartItemSchema = new mongoose.Schema({
 	product: {type: mongoose.Schema.ObjectId, ref: "Product"},
 	quantity: Number,
-	shop: {type: mongoose.Schema.ObjectId, ref: "Shop"},
+	store: {type: mongoose.Schema.ObjectId, ref: "Store"},
 	status: {type: String,
 		default: "Not processed",
 		enum: ["Not processed" , "Processing", "Shipped", "Delivered", "Cancelled"]}

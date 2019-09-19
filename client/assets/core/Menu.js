@@ -42,8 +42,8 @@ const Menu = withRouter(({history}) => (
             <HomeIcon/>
           </IconButton>
         </Link>
-        <Link to="/shops/all">
-          <Button style={isActive(history, "/shops/all")}>All Shops</Button>
+        <Link to="/stores/all">
+          <Button style={isActive(history, "/stores/all")}>All Stores</Button>
         </Link>
         <Link to="/cart">
           <Button style={isActive(history, "/cart")}>
@@ -69,7 +69,7 @@ const Menu = withRouter(({history}) => (
       }
       {
         auth.isAuthenticated() && (<span>
-          {auth.isAuthenticated().user.seller && (<Link to="/seller/shops"><Button style={isPartActive(history, "/seller/")}>My Shops</Button></Link>)}
+          {auth.isAuthenticated().user.seller && (<Link to="/seller/stores"><Button style={isPartActive(history, "/seller/")}>My Stores</Button></Link>)}
           <Link to={"/user/" + auth.isAuthenticated().user._id}>
             <Button style={isActive(history, "/user/" + auth.isAuthenticated().user._id)}>My Profile</Button>
           </Link>

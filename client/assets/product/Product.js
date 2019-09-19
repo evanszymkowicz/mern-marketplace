@@ -63,7 +63,7 @@ class Product extends Component {
   constructor({match}) {
     super()
     this.state = {
-      product: {shop: {}},
+      product: {store: {}},
       suggestions: [],
       suggestionTitle: "Related Products"
     }
@@ -121,9 +121,9 @@ class Product extends Component {
                   <Typography component="p" type="subheading" className={classes.subheading}>
                     {this.state.product.description}<br/>
                     <span className={classes.price}>$ {this.state.product.price}</span>
-                    <Link to={"/shops/"+this.state.product.shop._id} className={classes.link}>
+                    <Link to={"/stores/"+this.state.product.store._id} className={classes.link}>
                       <span>
-                        <Icon className={classes.icon}>shopping_basket</Icon> {this.state.product.shop.name}
+                        <Icon className={classes.icon}>storeping_basket</Icon> {this.state.product.store.name}
                       </span>
                     </Link>
                   </Typography>

@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // mount routes
 app.use("/", userRoutes);
 app.use("/", authRoutes);
-app.use("/", shopRoutes);
+app.use("/", storeRoutes);
 app.use("/", productRoutes);
 app.use("/", orderRoutes);
 

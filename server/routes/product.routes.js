@@ -1,13 +1,13 @@
 import express from "express";
 import productCtrl from "../controllers/product.controller";
 import authCtrl from "../controllers/auth.controller";
-import shopCtrl from "../controllers/shop.controller";
+import storeCtrl from "../controllers/store.controller";
 
 const router = express.Router();
 
-router.route("/api/products/by/:shopId")
-	.post(authCtrl.requireSignin, shopCtrl.isOwner, productCtrl.create)
-	.get(productCtrl.listByShop);
+router.route("/api/products/by/:storeId")
+	.post(authCtrl.requireLogin, storeCtrl.isOwner, productCtrl.create)
+	.get(productCtrl.listByStore);
 
 router.route("/api/products/latest")
 	.get(productCtrl.listLatest);
@@ -29,11 +29,11 @@ router.route("/api/product/image/:productId")
 router.route("/api/product/defaultphoto")
 	.get(productCtrl.defaultPhoto);
 
-router.route("/api/product/:shopId/:productId")
-	.put(authCtrl.requireSignin, shopCtrl.isOwner, productCtrl.update)
-	.delete(authCtrl.requireSignin, shopCtrl.isOwner, productCtrl.remove);
+router.route("/api/product/:storeId/:productId")
+	.put(authCtrl.requireLogin, storeCtrl.isOwner, productCtrl.update)
+	.delete(authCtrl.requireLogin, storeCtrl.isOwner, productCtrl.remove);
 
-router.param("shopId", shopCtrl.shopByID);
+router.param("storeId", storeCtrl.storeByID);
 router.param("productId", productCtrl.productByID);
 
 export default router;

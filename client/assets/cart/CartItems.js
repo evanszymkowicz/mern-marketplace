@@ -75,7 +75,7 @@ const styles = theme => ({
   continueBtn: {
     marginLeft: "10px"
   },
-  itemShop: {
+  itemStore: {
     display: "block",
     fontSize: "0.90em",
     color: "#78948f"
@@ -127,7 +127,7 @@ class CartItems extends Component {
     const {classes} = this.props
     return (<Card className={classes.card}>
       <Typography type="title" className={classes.title}>
-        Shopping Cart
+        Storeping Cart
       </Typography>
       {this.state.cartItems.length>0 ? (<span>
           {this.state.cartItems.map((item, i) => {
@@ -143,7 +143,7 @@ class CartItems extends Component {
                   <div>
                     <Typography type="subheading" component="h3" className={classes.price} color="primary">$ {item.product.price}</Typography>
                     <span className={classes.itemTotal}>${item.product.price * item.quantity}</span>
-                    <span className={classes.itemShop}>Shop: {item.product.shop.name}</span>
+                    <span className={classes.itemStore}>Store: {item.product.store.name}</span>
                   </div>
                 </CardContent>
                 <div className={classes.subheading}>
@@ -175,7 +175,7 @@ class CartItems extends Component {
               <Button color="primary" variant="raised">Sign in to checkout</Button>
             </Link>)}
           <Link to="/" className={classes.continueBtn}>
-            <Button variant="raised">Continue Shopping:</Button>
+            <Button variant="raised">Continue Storeping:</Button>
           </Link>
         </div>
       </span>) :

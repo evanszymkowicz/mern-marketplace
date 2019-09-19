@@ -37,7 +37,7 @@ const styles = theme => ({
 class MyStores extends Component {
   state = {
       Stores:[],
-      redirectToSignin: false
+      redirectToLogin: false
   }
 
   loadStores = () => {
@@ -46,7 +46,7 @@ class MyStores extends Component {
       userId: jwt.user._id
     }, {t: jwt.token}).then((data) => {
       if (data.error) {
-        this.setState({redirectToSignin: true})
+        this.setState({redirectToLogin: true})
       } else {
         this.setState({Stores: data})
       }
@@ -63,8 +63,8 @@ class MyStores extends Component {
   }
   render() {
     const {classes} = this.props
-    const redirectToSignin = this.state.redirectToSignin
-    if (redirectToSignin) {
+    const redirectToLogin = this.state.redirectToLogin
+    if (redirectToLogin) {
       return <Redirect to="/signin"/>
     }
     return (

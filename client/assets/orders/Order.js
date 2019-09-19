@@ -5,7 +5,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 // import Divider from "material-ui/Divider"
 // import { withStyles } from "material-ui/styles"
-import { read } from "./api-order.js";
+import { read } from "./order-api.js";
 import { Link } from "react-router-dom";
 
 const styles = theme => ({
@@ -77,7 +77,7 @@ const styles = theme => ({
     fontSize: "1.5em",
     color: "rgb(72, 175, 148)"
   },
-  itemShop: {
+  itemStore: {
     display: "block",
     fontSize: "1em",
     color: "#78948f"
@@ -147,9 +147,9 @@ class Order extends Component {
                         <div className={classes.details}>
                           <CardContent className={classes.content}>
                             <Link to={"/product/"+item.product._id}><Typography type="title" component="h3" className={classes.productTitle} color="primary">{item.product.name}</Typography></Link>
-                            <Typography type="subheading" component="h3" className={classes.itemShop} color="primary">$ {item.product.price} x {item.quantity}</Typography>
+                            <Typography type="subheading" component="h3" className={classes.itemStore} color="primary">$ {item.product.price} x {item.quantity}</Typography>
                             <span className={classes.itemTotal}>${item.product.price * item.quantity}</span>
-                            <span className={classes.itemShop}>Shop: {item.shop.name}</span>
+                            <span className={classes.itemStore}>Store: {item.store.name}</span>
                             <Typography type="subheading" component="h3" color={item.status == "Cancelled" ? "error":"secondary"}>Status: {item.status}</Typography>
                           </CardContent>
                         </div>
@@ -172,10 +172,10 @@ class Order extends Component {
                 <br/>
                 <Divider/>
                 <br/>
-                <Typography type="subheading" component="h3" className={classes.itemShop} color="primary">{this.state.order.delivery_address.street}</Typography>
-                <Typography type="subheading" component="h3" className={classes.itemShop} color="primary">{this.state.order.delivery_address.city}, {this.state.order.delivery_address.state} {this.state.order.delivery_address.zipcode}</Typography>
-                <Typography type="subheading" component="h3" className={classes.itemShop} color="primary">{this.state.order.delivery_address.country}</Typography><br/>
-                <Typography type="subheading" component="h3" className={classes.thanks} color="primary">Thank you for shopping with us! <br/>You can track the status of your purchased items on this page.</Typography>
+                <Typography type="subheading" component="h3" className={classes.itemStore} color="primary">{this.state.order.delivery_address.street}</Typography>
+                <Typography type="subheading" component="h3" className={classes.itemStore} color="primary">{this.state.order.delivery_address.city}, {this.state.order.delivery_address.state} {this.state.order.delivery_address.zipcode}</Typography>
+                <Typography type="subheading" component="h3" className={classes.itemStore} color="primary">{this.state.order.delivery_address.country}</Typography><br/>
+                <Typography type="subheading" component="h3" className={classes.thanks} color="primary">Thank you for storeping with us! <br/>You can track the status of your purchased items on this page.</Typography>
               </Card>
             </Grid>
         </Grid>

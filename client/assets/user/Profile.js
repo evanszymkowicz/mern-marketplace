@@ -43,7 +43,7 @@ class Profile extends Component {
     super()
     this.state = {
       user: "",
-      redirectToSignin: false
+      redirectToLogin: false
     }
     this.match = match
   }
@@ -53,7 +53,7 @@ class Profile extends Component {
       userId: userId
     }, {t: jwt.token}).then((data) => {
       if (data.error) {
-        this.setState({redirectToSignin: true})
+        this.setState({redirectToLogin: true})
       } else {
         this.setState({user: data})
       }
@@ -67,8 +67,8 @@ class Profile extends Component {
   }
   render() {
     const {classes} = this.props
-    const redirectToSignin = this.state.redirectToSignin
-    if (redirectToSignin) {
+    const redirectToLogin = this.state.redirectToLogin
+    if (redirectToLogin) {
       return <Redirect to="/signin"/>
     }
     return (

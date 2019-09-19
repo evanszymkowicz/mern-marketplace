@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { create } from "./api-product.js";
+import { create } from "./product-api.js";
 import { Link, Redirect } from "react-router-dom";
 import Card, { CardActions, CardContent } from "material-ui/Card";
 import Button from "material-ui/Button";
@@ -73,7 +73,7 @@ class NewProduct extends Component {
   clickSubmit = () => {
     const jwt = auth.isAuthenticated()
     create({
-      shopId: this.match.params.shopId
+      storeId: this.match.params.storeId
     }, {
       t: jwt.token
     }, this.productData).then((data) => {
@@ -87,7 +87,7 @@ class NewProduct extends Component {
 
   render() {
     if (this.state.redirect) {
-      return (<Redirect to={"/seller/shop/edit/"+this.match.params.shopId}/>)
+      return (<Redirect to={"/seller/store/edit/"+this.match.params.storeId}/>)
     }
     const {classes} = this.props
     return (<div>
@@ -125,7 +125,7 @@ class NewProduct extends Component {
         </CardContent>
         <CardActions>
           <Button color="primary" variant="raised" onClick={this.clickSubmit} className={classes.submit}>Submit</Button>
-          <Link to={"/seller/shop/edit/"+this.match.params.shopId} className={classes.submit}><Button variant="raised">Cancel</Button></Link>
+          <Link to={"/seller/store/edit/"+this.match.params.storeId} className={classes.submit}><Button variant="raised">Cancel</Button></Link>
         </CardActions>
       </Card>
     </div>)

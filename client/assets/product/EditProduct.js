@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import auth from "./../auth/auth-helper";
 import PropTypes from "prop-types";
-import {read, update} from "./api-product.js";
+import {read, update} from "./product-api.js";
 import {Link, Redirect} from "react-router-dom";
 import Card, {CardActions, CardContent} from "material-ui/Card";
 import Button from "material-ui/Button";
