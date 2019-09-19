@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-// import Card, {CardContent} from "material-ui/Card"
-// import Typography from "material-ui/Typography"
-// import Avatar from "material-ui/Avatar"
-// import Grid from "material-ui/Grid"
 import PropTypes from "prop-types";
-// import {withStyles} from "material-ui/styles"
-import {read} from "./store-api.js";
+import { read } from "./store-api.js";
 import Products from "./../product/Products";
 import {listByShop} from "./../product/product-api";
+import Card, { CardContent } from "material-ui/Card";
+import Typography from "material-ui/Typography";
+import Avatar from "material-ui/Avatar";
+import Grid from "material-ui/Grid";
+import { withStyles } from "material-ui/styles";
 
 const styles = theme => ({
   root: {
@@ -40,7 +40,7 @@ const styles = theme => ({
   }
 })
 
-class Shop extends Component {
+class Store extends Component {
   constructor({match}) {
     super()
     this.state = {
@@ -107,8 +107,8 @@ class Shop extends Component {
   }
 }
 
-Shop.propTypes = {
+Store.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(Store)
+export default withStyles(styles)(Store);

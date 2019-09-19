@@ -1,18 +1,18 @@
-import React, { Component } from "react"
-import auth from "./../auth/auth-helper"
-// import Card, {CardActions, CardContent, CardMedia} from "material-ui/Card"
-// import Button from "material-ui/Button"
-// import FileUpload from "material-ui-icons/FileUpload"
-// import TextField from "material-ui/TextField"
-// import Typography from "material-ui/Typography"
-// import Icon from "material-ui/Icon"
-// import Avatar from "material-ui/Avatar"
-import PropTypes from "prop-types"
-// import {withStyles} from "material-ui/styles"
-import { read, update } from "./api-store.js"
-import { Redirect } from "react-router-dom"
-// import Grid from "material-ui/Grid"
-import MyProducts from "./../product/MyProducts"
+import React, { Component } from "react";
+import auth from "./../auth/auth-helper";
+import PropTypes from "prop-types";
+import { read, update } from "./api-store.js";
+import { Redirect } from "react-router-dom";
+import MyProducts from "./../product/MyProducts";
+import Card, { CardActions, CardContent, CardMedia } from "material-ui/Card";
+import Button from "material-ui/Button";
+import FileUpload from "material-ui-icons/FileUpload";
+import TextField from "material-ui/TextField";
+import Typography from "material-ui/Typography";
+import Icon from "material-ui/Icon";
+import Avatar from "material-ui/Avatar";
+import { withStyles } from "material-ui/styles";
+import Grid from "material-ui/Grid";
 
 const styles = theme => ({
   root: {

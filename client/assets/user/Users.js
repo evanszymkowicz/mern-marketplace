@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-// import {withStyles} from "material-ui/styles"
-// import Paper from "material-ui/Paper"
-// import List, {ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText} from "material-ui/List"
-// import Avatar from "material-ui/Avatar"
-// import IconButton from "material-ui/IconButton"
-// import Typography from "material-ui/Typography"
-// import ArrowForward from "material-ui-icons/ArrowForward"
-// import Person from "material-ui-icons/Person"
-import {Link} from "react-router-dom";
-import {list} from "./user-api.js";
+import { Link}  from "react-router-dom";
+import { list } from "./user-api.js";
+import { withStyles } from "material-ui/styles";
+import Paper from "material-ui/Paper";
+import List, { ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText } from "material-ui/List";
+import Avatar from "material-ui/Avatar";
+import IconButton from "material-ui/IconButton";
+import Typography from "material-ui/Typography";
+import ArrowForward from "material-ui-icons/ArrowForward";
+import Person from "material-ui-icons/Person";
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -73,4 +73,4 @@ Users.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(Users)
+export default withStyles(styles)(Users);

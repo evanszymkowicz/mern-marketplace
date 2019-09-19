@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-// import {withStyles} from "material-ui/styles"
-// import Card from "material-ui/Card"
-// import Typography from "material-ui/Typography"
-// import Divider from "material-ui/Divider"
-// import GridList, { GridListTile } from "material-ui/GridList"
-// import Icon from "material-ui/Icon"
 import { list } from "./product-api";
 import Products from "./Products";
+import Card, Typography, Divider, Icon, GridList, { withStyles, GridListTitle } from "material-ui";
+
 
 const styles = theme => ({
   root: {
@@ -88,7 +84,7 @@ class Categories extends Component {
       <div>
         <Card className={classes.card}>
           <Typography type="title" className={classes.title}>
-            Explore by category
+            Search by Category
           </Typography>
           <div className={classes.root}>
             <GridList className={classes.gridList} cols={4}>

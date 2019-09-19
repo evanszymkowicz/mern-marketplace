@@ -49,13 +49,13 @@ const styles = theme => ({
     textAlign: "left",
     margin: "24px 10px 24px 24px",
     padding: "24px 20px 40px 20px",
-    backgroundColor: "#80808017"
+    backgroundColor: "#70b793"
   },
   innerCard: {
     textAlign: "left",
     margin: "24px 24px 24px 10px",
     padding: "30px 45px 40px 45px",
-    backgroundColor: "#80808017"
+    backgroundColor: "#70b793"
   },
   title: {
     marginTop: theme.spacing.unit * 2,

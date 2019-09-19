@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-// import IconButton from "material-ui/IconButton"
-// import Button from "material-ui/Button"
-// import DeleteIcon from "material-ui-icons/Delete"
-// import Dialog, {DialogActions, DialogContent, DialogContentText, DialogTitle} from "material-ui/Dialog"
 import auth from "./../auth/auth-helper";
 import { remove } from "./product-api";
+import  IconButton, Button, Dialog, { DialogActions, DialogContent, DialogContentText, DialogTitle } from "material-ui";
+import DeleteIcon from "material-ui-icons";
 
 class DeleteProduct extends Component {
   state = {
@@ -61,4 +59,4 @@ DeleteProduct.propTypes = {
   product: PropTypes.object.isRequired,
   onRemove: PropTypes.func.isRequired
 }
-export default DeleteProduct
+export default DeleteProduct;

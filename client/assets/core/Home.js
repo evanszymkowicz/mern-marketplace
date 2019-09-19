@@ -1,9 +1,11 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Suggestions from "./../product/Suggestions";
 import {listLatest, listCategories} from "./../product/product-api.js";
 import Search from "./../product/Search";
 import Categories from "./../product/Categories";
+import { Grid, withStyles } from  "material-ui-core";
+import { CartIcon, HomeIcon } from "material-ui/icons";
 
 const styles = theme => ({
   root: {
@@ -13,7 +15,7 @@ const styles = theme => ({
 })
 
 class Home extends Component {
-  state={
+  state = {
     suggestionTitle: "Latest Products",
     suggestions: [],
     categories: []
@@ -34,6 +36,7 @@ class Home extends Component {
       }
     })
   }
+
   render() {
     const {classes} = this.props
     return (

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-// import {withStyles} from "material-ui/styles"
-// import Paper from "material-ui/Paper"
-// import List, {ListItem, ListItemAvatar} from "material-ui/List"
-// import Avatar from "material-ui/Avatar"
-// import Typography from "material-ui/Typography"
-// import Divider from "material-ui/Divider"
 import { list } from "./store-api";
 import { Link } from "react-router-dom";
+import { withStyles } from "material-ui/styles";
+import Paper from "material-ui/Paper";
+import List, { ListItem, ListItemAvatar } from "material-ui/List";
+import Avatar from "material-ui/Avatar";
+import Typography from "material-ui/Typography";
+import Divider from "material-ui/Divider";
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -38,7 +38,7 @@ const styles = theme => ({
     padding: "24px"
   }
 })
-class Shops extends Component {
+class Stores extends Component {
   state = {
       shops:[]
   }
@@ -86,7 +86,7 @@ class Shops extends Component {
     </div>)
   }
 }
-Shops.propTypes = {
+Stores.propTypes = {
   classes: PropTypes.object.isRequired
 }
 

@@ -1,16 +1,15 @@
 import React, {Component} from "react";
 import auth from "./../auth/auth-helper";
-// import Card, {CardActions, CardContent} from "material-ui/Card"
-// import Button from "material-ui/Button"
-// import FileUpload from "material-ui-icons/FileUpload"
-// import TextField from "material-ui/TextField"
-// import Typography from "material-ui/Typography"
-// import Icon from "material-ui/Icon"
-// import Avatar from "material-ui/Avatar"
 import PropTypes from "prop-types";
-// import {withStyles} from "material-ui/styles"
 import {read, update} from "./api-product.js";
 import {Link, Redirect} from "react-router-dom";
+import Card, {CardActions, CardContent} from "material-ui/Card";
+import Button from "material-ui/Button";
+import FileUpload from "material-ui-icons/FileUpload";
+import TextField from "material-ui/TextField";
+import Typography from "material-ui/Typography";
+import Icon from "material-ui/Icon";
+import Avatar from "material-ui/Avatar";
 
 const styles = theme => ({
   card: {
@@ -82,7 +81,7 @@ class EditProduct extends Component {
   clickSubmit = () => {
     const jwt = auth.isAuthenticated()
     update({
-      shopId: this.match.params.shopId,
+      storeId: this.match.params.storeId,
       productId: this.match.params.productId
     }, {
       t: jwt.token
@@ -107,7 +106,7 @@ class EditProduct extends Component {
           ? `/api/product/image/${this.state.id}?${new Date().getTime()}`
           : "/api/product/defaultphoto"
     if (this.state.redirect) {
-      return (<Redirect to={"/seller/shop/edit/"+this.match.params.shopId}/>)
+      return (<Redirect to={"/seller/store/edit/"+this.match.params.storeId}/>)
     }
     const {classes} = this.props
     return (<div>
@@ -146,7 +145,7 @@ class EditProduct extends Component {
         </CardContent>
         <CardActions>
           <Button color="primary" variant="raised" onClick={this.clickSubmit} className={classes.submit}>Update</Button>
-          <Link to={"/seller/shops/edit/"+this.match.params.shopId} className={classes.submit}><Button variant="raised">Cancel</Button></Link>
+          <Link to={"/seller/stores/edit/"+this.match.params.storeId} className={classes.submit}><Button variant="raised">Cancel</Button></Link>
         </CardActions>
       </Card>
     </div>)

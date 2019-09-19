@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-// import {withStyles} from "material-ui/styles";
-// import Paper from "material-ui/Paper";
-// import Button from "material-ui/Button";
-// import Typography from "material-ui/Typography";
-// import IconButton from "material-ui/IconButton";
-// import {Link} from "react-router-dom";
-// import ViewIcon from "material-ui-icons/Visibility";
-// import Icon from "material-ui/Icon";
-// import Divider from "material-ui/Divider";
-// import Card, { CardContent, CardMedia } from "material-ui/Card";
 import AddToCart from "./../cart/AddToCart";
+import { withStyles } from "material-ui/styles";
+import Paper from "material-ui/Paper";
+import Button from "material-ui/Button";
+import Typography from "material-ui/Typography";
+import IconButton from "material-ui/IconButton";
+import { Link } from "react-router-dom";
+import ViewIcon from "material-ui-icons/Visibility";
+import Icon from "material-ui/Icon";
+import Divider from "material-ui/Divider";
+import Card, { CardContent, CardMedia } from "material-ui/Card";
 
 const styles = theme => ({
 	root: theme.mixins.gutters({
@@ -75,7 +75,7 @@ const styles = theme => ({
 	}
 });
 
-class Suggestions extends Component {
+class SuggestedProducts extends Component {
 	render() {
 		const {classes} = this.props;
 		return (<div>
@@ -125,10 +125,10 @@ class Suggestions extends Component {
 	}
 }
 
-Suggestions.propTypes = {
+SuggestedProducts.propTypes = {
 	classes: PropTypes.object.isRequired,
 	products: PropTypes.array.isRequired,
 	title: PropTypes.string.isRequired
 };
 
-export default withStyles(styles)(Suggestions);
+export default withStyles(styles)(SuggestedProducts);

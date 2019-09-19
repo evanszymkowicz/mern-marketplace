@@ -1,18 +1,18 @@
 import React,  {Component } from "react";
 import PropTypes from "prop-types";
-// import {withStyles} from "material-ui/styles"
-// import Button from "material-ui/Button"
-// import Card, {CardMedia} from "material-ui/Card"
-// import IconButton from "material-ui/IconButton"
-// import Edit from "material-ui-icons/Edit"
-// import Icon from "material-ui/Icon"
-// import List, {ListItem, ListItemSecondaryAction} from "material-ui/List"
-// import Typography from "material-ui/Typography"
-// import {Link} from "react-router-dom"
-// import Divider from "material-ui/Divider"
 import auth from "./../auth/auth-helper";
 import { listByShop } from "./../product/product-api";
 import DeleteProduct from "./../product/DeleteProduct";
+import { withStyles } from "material-ui/styles";
+import Button from "material-ui/Button";
+import Card, { CardMedia } from "material-ui/Card";
+import IconButton from "material-ui/IconButton";
+import Edit from "material-ui-icons/Edit";
+import Icon from "material-ui/Icon";
+import List, { ListItem, ListItemSecondaryAction } from "material-ui/List";
+import Typography from "material-ui/Typography";
+import { Link } from "react-router-dom";
+import Divider from "material-ui/Divider";
 
 const styles = theme => ({
   products: {
@@ -123,4 +123,4 @@ MyProducts.propTypes = {
   shopId: PropTypes.string.isRequired
 }
 
-export default withStyles(styles)(MyProducts)
+export default withStyles(styles)(MyProducts);

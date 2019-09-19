@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-// import {withStyles} from "material-ui/styles"
-// import Paper from "material-ui/Paper"
-// import Typography from "material-ui/Typography"
 import queryString from "query-string";
 import { stripeUpdate } from "./user-api.js";
 import auth from "./../auth/auth-helper";
+import { withStyles } from "material-ui/styles";
+import Paper from "material-ui/Paper";
+import Typography from "material-ui/Typography";
 
 const styles = theme => ({
   root: theme.mixins.gutters({

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import cart from "./cart-helper.js";
 import { Redirect } from "react-router-dom";
+import { withStyles, IconButton } from "material-ui-core";
+import { AddCartIcon, DisabledCartIcon } from "material-ui-icons";
 
 const styles = theme => ({
   iconButton: {
@@ -9,7 +11,7 @@ const styles = theme => ({
     height: "28px"
   },
   disabledIconButton: {
-    color: "#7f7563",
+    color: "#ff2400",
     width: "28px",
     height: "28px"
   }

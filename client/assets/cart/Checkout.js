@@ -9,7 +9,7 @@ const styles = theme => ({
   card: {
     margin: "24px 0px",
     padding: "16px 40px 90px 40px",
-    backgroundColor: "#80808017"
+    backgroundColor: "#70b793"
   },
   title: {
     margin: "24px 16px 8px 0px",

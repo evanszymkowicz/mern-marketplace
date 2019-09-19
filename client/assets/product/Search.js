@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-// import {withStyles} from "material-ui/styles"
-// import Card from "material-ui/Card"
-// import Divider from "material-ui/Divider"
-// import MenuItem from "material-ui/Menu/MenuItem"
-// import TextField from "material-ui/TextField"
-// import Button from "material-ui/Button"
-// import SearchIcon from "material-ui-icons/Search"
-import {list} from "./product-api";
+import { list } from "./product-api";
 import Products from "./Products";
+import { withStyles } from "material-ui/styles";
+import Card from "material-ui/Card";
+import Divider from "material-ui/Divider";
+import MenuItem from "material-ui/Menu/MenuItem";
+import TextField from "material-ui/TextField";
+import Button from "material-ui/Button";
+import SearchIcon from "material-ui-icons/Search";
 
 const styles = theme => ({
   card: {

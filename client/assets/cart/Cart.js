@@ -1,11 +1,9 @@
-import React, { Component } from 'react'
-// import Grid from 'material-ui/Grid'
-import PropTypes from 'prop-types'
-// import {withStyles} from 'material-ui/styles'
-import CartItems from './CartItems'
-import { StripeProvider } from 'react-stripe-elements'
-import config from './../../config/config'
-import Checkout from './Checkout'
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import CartItems from "./CartItems";
+import { StripeProvider } from "react-stripe-elements";
+import config from "./../../config/config";
+import Checkout from "./Checkout";
 
 const styles = theme => ({
   root: {
@@ -26,7 +24,7 @@ class Cart extends Component {
         stripe: window.Stripe(config.stripe_test_api_key)
       })
     } else {
-      document.querySelector('#stripe-js').addEventListener('load', () => {
+      document.querySelector("#stripe-js").addEventListener("load", () => {
         // Create Stripe instance once Stripe.js loads
         this.setState({
           stripe: window.Stripe(config.stripe_test_api_key)
@@ -62,4 +60,4 @@ Cart.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(Cart)
+export default withStyles(styles)(Cart);

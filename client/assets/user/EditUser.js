@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import Card, { CardActions, CardContent } from "material-ui/Card";
-// import Button from "material-ui/Button"
-// import TextField from "material-ui/TextField"
-// import Typography from "material-ui/Typography"
-// import Icon from "material-ui/Icon"
-// import { FormControlLabel } from "material-ui/Form"
-// import Switch from "material-ui/Switch"
 import PropTypes from "prop-types";
-// import { withStyles} from "material-ui/styles"
 import auth from "./../auth/auth-helper";
-import {read, update} from "./user-api.js";
-import {Redirect} from "react-router-dom";
+import {read, update } from "./user-api.js";
+import { Redirect } from "react-router-dom";
+import Button from "material-ui/Button";
+import TextField from "material-ui/TextField";
+import Typography from "material-ui/Typography";
+import Icon from "material-ui/Icon";
+import { FormControlLabel } from "material-ui/Form";
+import Switch from "material-ui/Switch";
+import { withStyles} from "material-ui/styles";
 
 const styles = theme => ({
   card: {

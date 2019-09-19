@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-// import Card, {CardActions, CardContent} from "material-ui/Card"
-// import Button from "material-ui/Button"
-// import TextField from "material-ui/TextField"
-// import Typography from "material-ui/Typography"
-// import Icon from "material-ui/Icon"
 import PropTypes from "prop-types";
-// import {withStyles} from "material-ui/styles"
 import { create } from "./user-api.js";
-// import Dialog, {DialogActions, DialogContent, DialogContentText, DialogTitle} from "material-ui/Dialog"
 import { Link } from "react-router-dom";
+import Card, { CardActions, CardContent } from "material-ui/Card";
+import Button from "material-ui/Button";
+import TextField from "material-ui/TextField";
+import Typography from "material-ui/Typography";
+import Icon from "material-ui/Icon";
+import { withStyles } from "material-ui/styles";
+import Dialog, { DialogActions, DialogContent, DialogContentText, DialogTitle } from "material-ui/Dialog";
 
 const styles = theme => ({
   card: {
@@ -104,8 +104,8 @@ class Signup extends Component {
   }
 }
 
-Signup.propTypes = {
+SignUp.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(Signup);
+export default withStyles(styles)(SignUp);

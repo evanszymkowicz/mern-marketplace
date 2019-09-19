@@ -1,15 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-// import {withStyles} from "material-ui/styles"
-// import Paper from "material-ui/Paper"
-// import List, {ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText} from "material-ui/List"
-// import Avatar from "material-ui/Avatar"
-// import IconButton from "material-ui/IconButton"
-// import Button from "material-ui/Button"
-// import Typography from "material-ui/Typography"
-// import Edit from "material-ui-icons/Edit"
-// import Person from "material-ui-icons/Person"
-// import Divider from "material-ui/Divider"
 import DeleteUser from "./DeleteUser";
 import auth from "./../auth/auth-helper";
 import { read } from "./user-api.js";
@@ -17,6 +7,16 @@ import { Redirect, Link } from "react-router-dom";
 import config from "./../../config/config";
 import stripeButton from "./../assets/images/stripeButton.png";
 import MyOrders from "./../order/MyOrders";
+import { withStyles } from "material-ui/styles";
+import Paper from "material-ui/Paper";
+import List, { ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText } from "material-ui/List";
+import Avatar from "material-ui/Avatar";
+import IconButton from "material-ui/IconButton";
+import Button from "material-ui/Button";
+import Typography from "material-ui/Typography";
+import Edit from "material-ui-icons/Edit";
+import Person from "material-ui-icons/Person";
+import Divider from "material-ui/Divider";
 
 const styles = theme => ({
   root: theme.mixins.gutters({

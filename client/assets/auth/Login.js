@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import auth from "./../auth/auth-helper";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { signin } from "./api-auth.js";
+import
 
 const styles = theme => ({
   card: {
@@ -71,26 +72,26 @@ class Signin extends Component {
       return (<Redirect to={from}/>)
     }
 
-    return (
-      <Card className={classes.card}>
-        <CardContent>
-          <Typography type="headline" component="h2" className={classes.title}>
-            Sign In
-          </Typography>
-          <TextField id="email" type="email" label="Email" className={classes.textField} value={this.state.email} onChange={this.handleChange("email")} margin="normal"/><br/>
-          <TextField id="password" type="password" label="Password" className={classes.textField} value={this.state.password} onChange={this.handleChange("password")} margin="normal"/>
-          <br/> {
-            this.state.error && (<Typography component="p" color="error">
-              <Icon color="error" className={classes.error}>error</Icon>
-              {this.state.error}
-            </Typography>)
-          }
-        </CardContent>
-        <CardActions>
-          <Button color="primary" variant="raised" onClick={this.clickSubmit} className={classes.submit}>Submit</Button>
-        </CardActions>
-      </Card>
-    )
+    // return (
+    //   <Card className={classes.card}>
+    //     <CardContent>
+    //       <Typography type="headline" component="h2" className={classes.title}>
+    //         Sign In
+    //       </Typography>
+    //       <TextField id="email" type="email" label="Email" className={classes.textField} value={this.state.email} onChange={this.handleChange("email")} margin="normal"/><br/>
+    //       <TextField id="password" type="password" label="Password" className={classes.textField} value={this.state.password} onChange={this.handleChange("password")} margin="normal"/>
+    //       <br/> {
+    //         this.state.error && (<Typography component="p" color="error">
+    //           <Icon color="error" className={classes.error}>error</Icon>
+    //           {this.state.error}
+    //         </Typography>)
+    //       }
+    //     </CardContent>
+    //     <CardActions>
+    //       <Button color="primary" variant="raised" onClick={this.clickSubmit} className={classes.submit}>Submit</Button>
+    //     </CardActions>
+    //   </Card>
+    // )
   }
 }
 
